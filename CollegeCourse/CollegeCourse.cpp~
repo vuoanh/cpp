@@ -1,0 +1,48 @@
+#include <isostream>
+#include <string>
+using namespace std;
+
+class CollegeCourse {
+private:
+  string department;
+  int courseNum;
+  int seats;
+public:
+  void setDepartmentAndCourse(string, int);
+  void setSeat(int);
+  void displayCourseData();
+};
+
+void CollegeCourse::setDepartmentAndCourse(string dept, int num){
+  department = dept;
+  courseNum = num;
+}
+
+void CollegeCourse::setSeat(int seats){
+  if (seats < 0) {
+    seats = 0;
+  }
+  this->seats = seats;
+}
+
+void CollegeCourse::displayCourseData(){
+  cout << department << courseNum << "accomodates" << seats << "students" << endl;
+}
+
+int main () {
+  CollegeCourse myCollegeClass;
+  string dept;
+  int num;
+  int seats;
+  cout << "please enter the name of the department: " << endl;
+  cin >> dept;
+  cout << "please enter the number of course: " << endl;
+  cin >> num;
+  cout << "please enter the number of the seats: " << endl;
+  cin >> seats;
+  myCollegeClass.setDepartmentAndCourse(dept, num);
+  myCollegeClass.setSeat(seats);
+  myCollegeClass.displayCourseData();
+  return 0;
+
+}
